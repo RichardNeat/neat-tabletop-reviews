@@ -15,7 +15,6 @@ export default function ReviewById () {
             setIsLoading(false);
         })
         .catch(() => {
-            console.log("here")
             setErr(true);
             setIsLoading(false)
         });
