@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getReviewById } from "../apis";
+import { getReviewById } from "../../apis";
+import Votes from "./Votes";
 
 export default function ReviewById () {
 
@@ -30,7 +31,7 @@ export default function ReviewById () {
             <p className="author-info">Written by {review.owner}</p>
             <p className="category-tag">Category: {review.category}</p>
             <p className="review-body">{review.review_body}</p>
-            <p className="review-votes">Likes: {review.votes}</p>
+            <Votes id = {review.review_id} votes = {review.votes}/>
         </section>
     );
 };

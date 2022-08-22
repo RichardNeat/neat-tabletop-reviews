@@ -4,7 +4,7 @@ import Header from './Components/Header';
 import Home from './Components/Home';
 import NavBar from './Components/NavBar';
 import Categories from './Components/Categories';
-import ReviewById from './Components/ReviewById';
+import ReviewById from './Components/Review/ReviewById';
 
 function App() {
   return (

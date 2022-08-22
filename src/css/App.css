@@ -78,6 +78,11 @@ li {
   border: 2px solid black;
   border-radius: 10px;
 }
+.vote-button {
+  margin: 5px;
+  background-color: greenyellow;
+  border-radius: 10px;
+}
 
 @media screen and (min-width: 600px) {
     /* .review {
