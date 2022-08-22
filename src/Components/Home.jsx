@@ -14,7 +14,7 @@ export default function Home () {
     return (
         <ul className='review-list'>
             {reviews.map((review) => {
-                return <li key={review.title} className="review">
+                return <li key={review.review_id} className="review">
                     <h3 className="review-title">{review.title}</h3>
                     <section className="category-tag">Category: {review.category}</section>
                     <section className="comment-count">Comments: {review.comment_count}</section>
