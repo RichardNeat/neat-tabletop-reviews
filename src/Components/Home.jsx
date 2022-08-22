@@ -4,12 +4,16 @@ import { getReviews } from "../apis";
 export default function Home () {
 
     const [reviews, setReviews] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         getReviews().then(({data}) => {
             setReviews(data.reviews);
+            setIsLoading(false)
         });
     }, []);
+
+    if (isLoading) return <p>Loading Reviews...</p>
 
     return (
         <ul className='review-list'>

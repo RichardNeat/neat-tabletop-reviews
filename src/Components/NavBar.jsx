@@ -5,12 +5,16 @@ import { Link } from 'react-router-dom'
 export default function NavBar () {
 
     const [categories, setCategories] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         getCategories().then(({data}) => {
             setCategories(data.categories);
+            setIsLoading(false);
         });
     }, []);
+
+    if (isLoading) return <p>Loading Categories...</p>
 
     return (
         <>

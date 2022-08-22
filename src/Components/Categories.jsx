@@ -4,14 +4,18 @@ import { getReviewsByCategory } from "../apis";
 
 export default function Categories () {
 
-    const [categoryList, setCategoryList] = useState([])
+    const [categoryList, setCategoryList] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
     const {category} = useParams();
 
     useEffect(() => {
         getReviewsByCategory(category).then(({data}) => {
             setCategoryList(data.reviews)
-        })
+            setIsLoading(false);
+        });
     }, [category]);
+
+    if (isLoading) return <p>Loading Reviews...</p>
     
     return (
         <>
