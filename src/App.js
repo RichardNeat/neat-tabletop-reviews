@@ -1,9 +1,10 @@
 import './css/App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './Components/Header';
 import Home from './Components/Home';
 import NavBar from './Components/NavBar';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Categories from './Components/Categories';
+import ReviewById from './Components/ReviewById';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Routes>  
           <Route path='/' element={<Home />}/>
           <Route path='/:category' element={<Categories />}/>
+          <Route path='/review/:review_id' element={<ReviewById />}/>
         </Routes>
       </div>
     </BrowserRouter>

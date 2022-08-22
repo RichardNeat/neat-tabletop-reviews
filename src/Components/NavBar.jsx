@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { getCategories } from "../apis";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 export default function NavBar () {
 
