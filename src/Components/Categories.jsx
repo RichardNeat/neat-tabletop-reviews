@@ -33,7 +33,6 @@ export default function Categories () {
                 <p className="comment-count">Comments: {review.comment_count}</p>
                 <img className="review-img" src={review.review_img_url} alt={review.title}></img>
                 <p className="author-info">Written by {review.owner}</p>
-                <p>{review.review_id}</p>
                 <Link to={`/review/${review.review_id}`} className="see-more">See More</Link>
                 </li>
             })}
