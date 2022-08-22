@@ -12,14 +12,12 @@ export default function NavBar () {
         });
     }, []);
 
-    console.log(categories)
-
     return (
         <>
             <h3>Categories:</h3>
             <ul>
                 {categories.map((category) => {
-                    return <li><Link key = {category.slug} to={`/${category.slug}`}>{category.slug}</Link></li>
+                    return <li key={category.slug}><Link to={`/${category.slug}`}>{category.slug}</Link></li>
                 })}
             </ul>
         </>
