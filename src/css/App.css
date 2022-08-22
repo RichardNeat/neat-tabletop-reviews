@@ -55,6 +55,7 @@ li {
   max-height: 300px;
   border: 3px solid black;
   border-radius: 15px;
+  margin: 15px;
 }
 
 .comment-count {
@@ -63,6 +64,19 @@ li {
 
 .author-info {
   padding: 5px;
+}
+
+.single-review {
+  display: inline-block;
+  align-items: center;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.review-body {
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 10px;
 }
 
 @media screen and (min-width: 600px) {
@@ -83,5 +97,8 @@ li {
       display: inline-block;
       width: 400px;
       height: 500px;
+    }
+    .single-review {
+      max-width: 600px;
     }
 }
