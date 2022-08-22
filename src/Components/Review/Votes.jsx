@@ -6,13 +6,25 @@ export default function Votes ({id, votes}) {
     const [voteTally, setVoteTally] = useState(votes);
     const [err, setErr] = useState(null);
 
-    const handleClick = () => {
+    const handleUpClick = () => {
         setVoteTally((currVoteTally) => {
             return currVoteTally + 1;
         });
-        addVote(id).catch(() => {
+        addVote(id, 1).catch(() => {
             setVoteTally((currVoteTally) => {
                 return currVoteTally - 1;
+            });
+            setErr('Something went wrong, please try again');
+        });
+    };
+
+    const handleDownClick = () => {
+        setVoteTally((currVoteTally) => {
+            return currVoteTally - 1;
+        });
+        addVote(id, -1).catch(() => {
+            setVoteTally((currVoteTally) => {
+                return currVoteTally + 1;
             });
             setErr('Something went wrong, please try again');
         });
@@ -24,7 +36,8 @@ export default function Votes ({id, votes}) {
         <>
             <p className="review-votes">
             Votes: {voteTally}
-            <button onClick={handleClick} className="vote-button"><strong>^</strong></button>
+            <button onClick={handleUpClick} className="vote-button"><strong>⬆</strong></button>
+            <button onClick={handleDownClick} className="downVote-button"><strong>⬇</strong></button>
             </p>
         </>
     )

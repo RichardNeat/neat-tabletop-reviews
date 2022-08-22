@@ -83,6 +83,11 @@ li {
   background-color: greenyellow;
   border-radius: 10px;
 }
+.downVote-button {
+  margin: 5px;
+  background-color: orangered;
+  border-radius: 10px;
+}
 
 @media screen and (min-width: 600px) {
     /* .review {
