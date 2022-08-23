@@ -12,7 +12,7 @@ export default function NavBar () {
             setCategories(data.categories);
             setIsLoading(false);
         });
-    }, []);
+    }, [setCategories]);
 
     if (isLoading) return <p>Loading Categories...</p>
 

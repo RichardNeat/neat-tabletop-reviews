@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getReviewById } from "../../apis";
 import Votes from "./Votes";
-import Comments from "../Comments/Comments";
+import Comments from "./Comments";
 
 export default function ReviewById () {
 
@@ -34,7 +34,7 @@ export default function ReviewById () {
                 <p className="category-tag"><strong>Category: </strong>{review.category}</p>
                 <p className="review-body">{review.review_body}</p>
                 <Votes id = {review.review_id} votes = {review.votes}/>
-                <Comments id = {review.review_id}/>
+                <Comments id = {review.review_id} comment_count = {review.comment_count}/>
             </section>
         </>
     );
