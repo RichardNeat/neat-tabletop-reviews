@@ -19,3 +19,7 @@ export const getReviewById = (id) => {
 export const addVote = (id, vote) => {
     return axios.patch(`https://neat-games.herokuapp.com/api/reviews/${id}`, {inc_votes: vote});
 };
+
+export const getCommentsById = (id) => {
+    return axios.get(`https://neat-games.herokuapp.com/api/reviews/${id}/comments`);
+};
