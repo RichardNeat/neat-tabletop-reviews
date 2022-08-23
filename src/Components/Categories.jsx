@@ -14,7 +14,6 @@ export default function Categories () {
             setCategoryList(data.reviews)
             setIsLoading(false);
         }).catch(() => {
-            console.log("here")
             setErr(true);
             setIsLoading(false)
         });

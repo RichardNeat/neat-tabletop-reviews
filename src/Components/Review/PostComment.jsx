@@ -16,6 +16,7 @@ export default function PostComment ({id}) {
     };
 
     const handleSubmit = (event) => {
+        setSuccess(false);
         setIsLoading(true);
         event.preventDefault();
         if (body.length > 0) {

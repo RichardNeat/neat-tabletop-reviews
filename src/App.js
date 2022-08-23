@@ -5,7 +5,7 @@ import Home from './Components/Home';
 import NavBar from './Components/NavBar';
 import Categories from './Components/Categories';
 import ReviewById from './Components/Review/ReviewById';
-import OrderBy from './Components/Review/OrderBy';
+import OrderBy from './Components/Review/Queries';
 
 function App() {
 

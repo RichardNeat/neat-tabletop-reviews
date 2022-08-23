@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getReviews } from "../apis";
-import OrderBy from "./Review/OrderBy";
+import Queries from "./Review/Queries";
 
 export default function Home () {
 
@@ -28,7 +28,7 @@ export default function Home () {
 
     return (
         <section>
-            <OrderBy setReviews = {setReviews} sortBy={sortBy} orderBy={orderBy} setSortBy={setSortBy} setOrderBy={setOrderBy} page={page} setPage={setPage} limit={limit} setLimit={setLimit}/>
+            <Queries setSortBy={setSortBy} setOrderBy={setOrderBy} setPage={setPage} setLimit={setLimit}/>
             <ul className='review-list'>
                 {reviews.map((review) => {
                     return <li key={review.review_id} className="review">
