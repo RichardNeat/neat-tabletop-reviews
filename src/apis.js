@@ -1,7 +1,8 @@
 import axios from 'axios';
 
-export const getReviews = () => {
-    return axios.get('https://neat-games.herokuapp.com/api/reviews');
+export const getReviews = (sortBy = "created_at", order = "DESC") => {
+        console.log(sortBy, order, "in API")
+        return axios.get(`https://neat-games.herokuapp.com/api/reviews?sort_by=${sortBy}&order=${order}`);
 };
 
 export const getCategories = () => {
