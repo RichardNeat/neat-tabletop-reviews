@@ -1,4 +1,5 @@
 import './css/App.css';
+import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './Components/Header';
 import Home from './Components/Home';
@@ -7,11 +8,14 @@ import Categories from './Components/Categories';
 import ReviewById from './Components/Review/ReviewById';
 
 function App() {
+
+  const [categories, setCategories] = useState([]);
+
   return (
     <BrowserRouter>
       <div className="App">
         <Header />
-        <NavBar />
+        <NavBar categories = {categories} setCategories = {setCategories}/>
         <Routes>  
           <Route path='/' element={<Home />}/>
           <Route path='/:category' element={<Categories />}/>

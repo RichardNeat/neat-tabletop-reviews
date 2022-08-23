@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getReviewById } from "../../apis";
 import Votes from "./Votes";
-import Comments from "../Comments/Comments";
+import Comments from "./Comments";
 
 export default function ReviewById () {
 
