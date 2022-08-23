@@ -8,6 +8,7 @@ export default function PostComment ({id}) {
     const [success, setSuccess] = useState(false);
     const [submitted, setSubmitted] = useState(false);
     const [err, setErr] = useState(false);
+    const [isBodyEmpty, setIsBodyEmpty] = useState(false)
 
     const handleChange = (event) => {
         setBody(event.target.value)
@@ -20,10 +21,13 @@ export default function PostComment ({id}) {
                 setSuccess(true);
                 setSubmitted(true);
                 setErr(false);
+                setIsBodyEmpty(false);
                 setBody('');
             }).catch(() => {
                 setErr(true);
             });
+        } else {
+            setIsBodyEmpty(true);
         };
     }; 
 
@@ -34,10 +38,11 @@ export default function PostComment ({id}) {
                 {/* generalise this when user is added to auto fill this information */}
                 <h4>User: {author}</h4>
                 <label htmlFor="comment-body">New Comment: </label>
-                <textarea value={body} onChange={handleChange} type="text" id={body.length === 0 ? "comment-body-red": "comment-body-green"}></textarea>
+                <textarea value={body} onChange={handleChange} type="text" id={body.length === 0 ? "comment-body": "comment-body-green"}></textarea>
                 <button disabled={submitted ? true: false}>Submit</button> <br></br>
                 {err ? <p>Sorry something went wrong, please try again.</p>: null}
                 {success ? <p>Your comment has been added!</p>: null}
+                {isBodyEmpty ? <p>Please enter some text!</p>: null}
             </form>
         </section>
     )

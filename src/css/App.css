@@ -110,11 +110,11 @@ li {
   background-color: beige;
 }
 
-#comment-body-red {
+#comment-body {
   height: 80px;
   width: 420px;
   margin: 10px;
-  border: red solid 2px;
+  border: black solid 2px;
   background-color: beige;
 }
 
