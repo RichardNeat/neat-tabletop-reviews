@@ -5,6 +5,8 @@ export default function PostComment ({id}) {
 
     const [author, setAuthor] = useState("happyamy2016");
     const [body, setBody] = useState('');
+    const [success, setSuccess] = useState(false);
+    const [submitted, setSubmitted] = useState(false);
 
     const handleChange = (event) => {
         setBody(event.target.value)
@@ -12,8 +14,9 @@ export default function PostComment ({id}) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        postComment(id, author, body).then((res) => {
-            console.log(res);
+        setSubmitted(true);
+        postComment(id, author, body).then(() => {
+            setSuccess(true);
         });
     }; 
 
@@ -25,7 +28,8 @@ export default function PostComment ({id}) {
                 <h4>User: {author}</h4>
                 <label htmlFor="comment-body">New Comment: </label>
                 <textarea value={body} onChange={handleChange} type="text" id="comment-body"></textarea>
-                <button>Submit</button>
+                <button disabled={submitted ? true: false}>Submit</button> <br></br>
+                {success ? <p>Your comment has been added!</p>: null}
             </form>
         </section>
     )

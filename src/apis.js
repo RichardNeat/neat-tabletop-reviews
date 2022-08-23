@@ -25,6 +25,6 @@ export const getCommentsById = (id) => {
 };
 
 export const postComment = (id, username, body) => {
-    console.log(id, username, body)
+    console.log(id, username, body);
     return axios.post(`https://neat-games.herokuapp.com/api/reviews/${id}/comments`, {username, body})
 };
