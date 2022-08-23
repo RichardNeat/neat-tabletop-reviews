@@ -110,11 +110,19 @@ li {
   background-color: beige;
 }
 
-#comment-body {
+#comment-body-red {
   height: 80px;
   width: 420px;
   margin: 10px;
-  border: #282c34 solid 2px;
+  border: red solid 2px;
+  background-color: beige;
+}
+
+#comment-body-green {
+  height: 80px;
+  width: 420px;
+  margin: 10px;
+  border: greenyellow solid 2px;
   background-color: beige;
 }
 

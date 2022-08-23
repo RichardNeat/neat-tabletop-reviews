@@ -14,10 +14,12 @@ export default function PostComment ({id}) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        setSubmitted(true);
-        postComment(id, author, body).then(() => {
-            setSuccess(true);
-        });
+        if (body.length > 0) {
+            setSubmitted(true);
+            postComment(id, author, body).then(() => {
+                setSuccess(true);
+            });
+        };
     }; 
 
     return (
@@ -27,7 +29,7 @@ export default function PostComment ({id}) {
                 {/* generalise this when user is added to auto fill this information */}
                 <h4>User: {author}</h4>
                 <label htmlFor="comment-body">New Comment: </label>
-                <textarea value={body} onChange={handleChange} type="text" id="comment-body"></textarea>
+                <textarea value={body} onChange={handleChange} type="text" id={body.length === 0 ? "comment-body-red": "comment-body-green"}></textarea>
                 <button disabled={submitted ? true: false}>Submit</button> <br></br>
                 {success ? <p>Your comment has been added!</p>: null}
             </form>

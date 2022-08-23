@@ -29,6 +29,7 @@ export default function Comments ({id, comment_count}) {
                 {comments.map((comment) => {
                     return <li key={comment.comment_id} className="comment">
                             <strong>Written by </strong>{comment.author} <br></br>
+                            Created At: {comment.created_at} <br></br>
                             {comment.body} <br></br>
                             <strong>Votes: </strong>{comment.votes}
                             </li>
