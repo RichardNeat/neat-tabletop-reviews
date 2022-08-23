@@ -63,10 +63,10 @@ export default function Votes ({id, votes}) {
     return (
         <>
             <p className="review-votes">
-            Votes: {voteTally}
+            <strong>Votes: </strong>{voteTally}
             <button disabled={upDisabled} onClick={handleUpClick} className="upVote-button"><strong>{upClicks ? "undo": "⬆"}</strong></button>
             <button disabled={downDisabled} onClick={handleDownClick} className="downVote-button"><strong>{downClicks ? "undo": "⬇"}</strong></button>
-            {err ? <p>{err}</p>: ''}
+            {err ? <p>{err}</p>: null}
             </p>
         </>
     );

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getReviewById } from "../../apis";
 import Votes from "./Votes";
+import Comments from "../Comments/Comments";
 
 export default function ReviewById () {
 
@@ -25,13 +26,16 @@ export default function ReviewById () {
     if (err) return <p>Sorry that review has not been found, please try another</p>
 
     return (
-        <section className="single-review">
-            <img className="review-img" src={review.review_img_url} alt={review.title}></img>
-            <h3 className="single-review-title">{review.title}</h3>
-            <p className="author-info">Written by {review.owner}</p>
-            <p className="category-tag">Category: {review.category}</p>
-            <p className="review-body">{review.review_body}</p>
-            <Votes id = {review.review_id} votes = {review.votes}/>
-        </section>
+        <>
+            <section className="single-review">
+                <img className="review-img" src={review.review_img_url} alt={review.title}></img>
+                <h3 className="single-review-title">{review.title}</h3>
+                <p className="author-info"><strong>Written by </strong>{review.owner}</p>
+                <p className="category-tag"><strong>Category: </strong>{review.category}</p>
+                <p className="review-body">{review.review_body}</p>
+                <Votes id = {review.review_id} votes = {review.votes}/>
+                <Comments id = {review.review_id}/>
+            </section>
+        </>
     );
 };
