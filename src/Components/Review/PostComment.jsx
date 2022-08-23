@@ -19,13 +19,14 @@ export default function PostComment ({id}) {
         setIsLoading(true);
         event.preventDefault();
         if (body.length > 0) {
+            setSubmitted(true);
             postComment(id, author, body).then(() => {
                 setSuccess(true);
-                setSubmitted(true);
                 setErr(false);
                 setIsBodyEmpty(false);
                 setIsLoading(false);
                 setBody('');
+                setSubmitted(false);
             }).catch(() => {
                 setErr(true);
                 setIsLoading(false);
