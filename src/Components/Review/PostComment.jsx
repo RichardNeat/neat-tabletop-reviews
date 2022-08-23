@@ -9,12 +9,14 @@ export default function PostComment ({id}) {
     const [submitted, setSubmitted] = useState(false);
     const [err, setErr] = useState(false);
     const [isBodyEmpty, setIsBodyEmpty] = useState(false)
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleChange = (event) => {
         setBody(event.target.value)
     };
 
     const handleSubmit = (event) => {
+        setIsLoading(true);
         event.preventDefault();
         if (body.length > 0) {
             postComment(id, author, body).then(() => {
@@ -22,12 +24,17 @@ export default function PostComment ({id}) {
                 setSubmitted(true);
                 setErr(false);
                 setIsBodyEmpty(false);
+                setIsLoading(false);
                 setBody('');
             }).catch(() => {
                 setErr(true);
+                setIsLoading(false);
+                setIsBodyEmpty(false);
             });
         } else {
             setIsBodyEmpty(true);
+            setErr(null);
+            setIsLoading(false);
         };
     }; 
 
@@ -43,6 +50,7 @@ export default function PostComment ({id}) {
                 {err ? <p>Sorry something went wrong, please try again.</p>: null}
                 {success ? <p>Your comment has been added!</p>: null}
                 {isBodyEmpty ? <p>Please enter some text!</p>: null}
+                {isLoading ? <p>Posting...</p>: null}
             </form>
         </section>
     )
