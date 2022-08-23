@@ -10,23 +10,25 @@ export default function Home () {
     const [err, setErr] = useState(null);
     const [sortBy, setSortBy] = useState('created_at');
     const [orderBy, setOrderBy] = useState('DESC');
+    const [page, setPage] = useState(1);
+    const [limit, setLimit] = useState(10);
 
     useEffect(() => {
-        getReviews(sortBy, orderBy).then(({data}) => {
+        getReviews(sortBy, orderBy, page, limit).then(({data}) => {
             setReviews(data.reviews);
             setIsLoading(false)
         }).catch(() => {
             setErr(true);
             setIsLoading(false)
         });
-    },[sortBy, orderBy]);
+    },[sortBy, orderBy, page, limit]);
 
     if (isLoading) return <p>Loading Reviews...</p>
     if (err) return <p>Sorry there has been a problem, please try again</p>
 
     return (
         <section>
-            <OrderBy setReviews = {setReviews} sortBy={sortBy} orderBy={orderBy} setSortBy={setSortBy} setOrderBy={setOrderBy}/>
+            <OrderBy setReviews = {setReviews} sortBy={sortBy} orderBy={orderBy} setSortBy={setSortBy} setOrderBy={setOrderBy} page={page} setPage={setPage} limit={limit} setLimit={setLimit}/>
             <ul className='review-list'>
                 {reviews.map((review) => {
                     return <li key={review.review_id} className="review">
@@ -36,6 +38,7 @@ export default function Home () {
                         <p className="designer">Designer: {review.designer}</p>
                         <img className="review-img" src={review.review_img_url} alt={review.title}></img>
                         <p className="author-info">Written by {review.owner}</p>
+                        <p className="created-at">Date: {review.created_at}</p>
                         <Link to={`/review/${review.review_id}`} className="see-more">See More</Link>
                         </li>
                 })}
