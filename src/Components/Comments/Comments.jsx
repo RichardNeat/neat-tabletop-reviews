@@ -30,7 +30,7 @@ export default function Comments ({id}) {
                             {comment.body} <br></br>
                             <strong>Votes: </strong>{comment.votes}
                             </li>
-                    })};
+                    })}
             </ul>
         </section>
     );
