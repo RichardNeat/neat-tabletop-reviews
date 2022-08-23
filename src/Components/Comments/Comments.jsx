@@ -4,12 +4,16 @@ import { getCommentsById } from "../../apis";
 export default function Comments ({id}) {
 
     const [comments, setComments] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         getCommentsById(id).then(({data}) => {
             setComments(data.comments);
+            setIsLoading(false);
         });
     }, [id]);
+
+    if (isLoading) return <p>Loading Comments...</p>
 
     return (
         <section className="comments-list">
