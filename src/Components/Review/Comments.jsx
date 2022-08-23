@@ -21,7 +21,7 @@ export default function Comments ({id}) {
     return (
         <section className="comments-list">
             <h3>Comments ({comments.length})</h3>
-            <PostComment />
+            <PostComment id={id}/>
             {isLoading && !err ? <p>Loading Comments...</p>: null}
             {err ? <p>{err}</p>: null}
             {comments.length === 0 && !err ? "No comments yet!": null}
