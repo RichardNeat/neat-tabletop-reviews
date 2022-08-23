@@ -31,6 +31,7 @@ export default function PostComment ({id}) {
                 setErr(true);
                 setIsLoading(false);
                 setIsBodyEmpty(false);
+                setSubmitted(false);
             });
         } else {
             setIsBodyEmpty(true);
