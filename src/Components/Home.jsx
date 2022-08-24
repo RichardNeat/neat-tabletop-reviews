@@ -39,7 +39,6 @@ export default function Home () {
                         <h3 className="review-title">{review.title}</h3>
                         <p className="category-tag">Category: {review.category}</p>
                         <p className="comment-count">Comments: {review.comment_count} Votes: {review.votes}</p>
-                        <p className="designer">Designer: {review.designer}</p>
                         <img className="review-img" src={review.review_img_url} alt={review.title}></img>
                         <p className="author-info">Written by {review.owner}</p>
                         <p className="created-at">Date: {review.created_at}</p>

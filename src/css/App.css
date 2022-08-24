@@ -42,12 +42,15 @@ li {
 }
 
 .review-list {
+  display: inline;
   align-items: center;
 }
 
 .review {
   align-items: center;
   border: 2px solid black;
+  border-radius: 30px;
+  margin: 10px;
 }
 
 .review-img {
@@ -147,9 +150,18 @@ li {
     .review {
       display: inline-block;
       width: 400px;
-      height: 600px;
+      height: 500px;
     }
     .single-review {
       max-width: 1450px;
+    }
+    .review-img {
+      width: 200px;
+      height: 150px
+    }
+    .review-title {
+      max-height: 10px;
+      padding: 25px;
+      margin: 10px
     }
 }
