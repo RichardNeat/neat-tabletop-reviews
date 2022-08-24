@@ -27,7 +27,6 @@ export default function ReviewById () {
     if (err) return <p>Sorry that review has not been found, please try another</p>
 
     return (
-        <>
             <section className="single-review">
                 <img className="review-img" src={review.review_img_url} alt={review.title}></img>
                 <h3 className="single-review-title">{review.title}</h3>
@@ -37,6 +36,5 @@ export default function ReviewById () {
                 <Votes id = {review.review_id} votes = {review.votes}/>
                 <Comments id = {review.review_id} comment_count = {review.comment_count}/>
             </section>
-        </>
     );
 };

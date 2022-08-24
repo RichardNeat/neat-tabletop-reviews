@@ -29,6 +29,7 @@ export default function Comments ({id, comment_count}) {
             {err ? <p>{err}</p>: null}
             {deleted ? <p>Comment Deleted!</p>: null}
             {comments.length === 0 && !err ? "No comments yet!": null}
+            <h3>Comments: ({comment_count})</h3>
             <ul>
                 {comments.map((comment) => {
                     return <li key={comment.comment_id} className="comment">

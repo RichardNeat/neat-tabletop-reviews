@@ -11,7 +11,7 @@ export default function Home () {
     const [sortBy, setSortBy] = useState('created_at');
     const [orderBy, setOrderBy] = useState('DESC');
     const [page, setPage] = useState(1);
-    const [limit, setLimit] = useState(10);    
+    const [limit, setLimit] = useState(10);  
 
     useEffect(() => {
         setIsLoading(true);
@@ -32,7 +32,6 @@ export default function Home () {
     return (
         <section>
             <Queries setSortBy={setSortBy} setOrderBy={setOrderBy} setPage={setPage} setLimit={setLimit} limit={limit} totalPages={Math.ceil(reviews[0].total_count/limit)}/>
-            <h2>Total Reviews: {reviews[0].total_count}</h2>
             <ul className='review-list'>
                 {reviews.map((review) => {
                     return <li key={review.review_id} className="review">

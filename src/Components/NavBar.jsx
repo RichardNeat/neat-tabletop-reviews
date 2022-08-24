@@ -18,7 +18,7 @@ export default function NavBar () {
     if (isLoading) return <p>Loading Categories...</p>
 
     return (
-        <>  
+        <section className="nav">  
             <p>User: happyamy2016</p>
             <h4>Categories:</h4>
             <ul>
@@ -26,6 +26,6 @@ export default function NavBar () {
                     return <li key={category.slug}><Link to={`/${category.slug}`}>{category.slug}</Link></li>
                 })}
             </ul>
-        </>
+        </section>
     )
 }
