@@ -1,11 +1,10 @@
 import { useState } from "react"
 import { postComment } from "../../apis";
 
-export default function PostComment ({id}) {
+export default function PostComment ({id, setDeleted, success, setSuccess}) {
 
     const [author, setAuthor] = useState("happyamy2016");
     const [body, setBody] = useState('');
-    const [success, setSuccess] = useState(false);
     const [submitted, setSubmitted] = useState(false);
     const [err, setErr] = useState(false);
     const [isBodyEmpty, setIsBodyEmpty] = useState(false)
@@ -13,6 +12,7 @@ export default function PostComment ({id}) {
 
     const handleChange = (event) => {
         setBody(event.target.value)
+        setDeleted(false);
     };
 
     const handleSubmit = (event) => {

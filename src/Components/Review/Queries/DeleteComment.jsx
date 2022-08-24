@@ -1,16 +1,19 @@
 import { useState } from "react";
 import { deleteComment } from "../../../apis";
 
-export default function DeleteComment ({id}) {
+export default function DeleteComment ({id, setDeleted, setSuccess}) {
 
     const [isLoading, setIsLoading] = useState(false);
     const [err, setErr] = useState(false);
-    const [deleted, setDeleted] = useState(false);
 
     const handleClick = () => {
+        setSuccess(false);
+        setDeleted(false);
         setIsLoading(true);
-        deleteComment(id)
-        setIsLoading(false)
+        deleteComment(id).then(() => {
+            setIsLoading(false)
+            setDeleted(true)
+        })
         .catch(() => {
             setIsLoading(false);
             setErr(true);
