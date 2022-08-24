@@ -5,6 +5,7 @@ export default function DeleteComment ({id}) {
 
     const [isLoading, setIsLoading] = useState(false);
     const [err, setErr] = useState(false);
+    const [deleted, setDeleted] = useState(false);
 
     const handleClick = () => {
         setIsLoading(true);
@@ -17,6 +18,10 @@ export default function DeleteComment ({id}) {
     };
 
     return (
-        <button onClick={handleClick}>Delete</button>
+        <>
+            <button onClick={handleClick}>Delete</button>
+            {isLoading ? <p>Deleting...</p>: null}
+            {err ? <p>Something went wrong please try again</p>: null}
+        </>
     );
 };
