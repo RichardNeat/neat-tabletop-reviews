@@ -4,14 +4,18 @@ export default function Page ({setPage, totalPages}) {
         setPage(event.target.value);
     };
 
-    console.log(Array.from(Array(totalPages).keys()))
+    // console.log(Array(3))
+    // console.log(Array.from(Array(3)))
+    // console.log(Array(totalPages).keys())
+    // console.log(Object.keys(Array.from(Array(3))))
+    // console.log(Array.from(Array(totalPages).keys()))
 
     return (
         <>
             Page: {}
             <select onChange={handlePageChange}>
-                {Array.from(Array(totalPages).keys()).map((page, index) => {
-                    return <option>{index + 1}</option>
+                {Array.from(Array(totalPages).keys()).map((e) => {
+                    return <option key={e + 1}>{e + 1}</option>
                 })}
             </select>
         </>

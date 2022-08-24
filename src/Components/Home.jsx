@@ -24,12 +24,14 @@ export default function Home () {
         });
     },[sortBy, orderBy, page, limit]);
 
+    // console.log(sortBy, orderBy, page, limit);
+
     if (isLoading) return <p>Loading Reviews...</p>
     if (err) return <p>Sorry there has been a problem, please try again</p>
 
     return (
         <section>
-            <Queries setSortBy={setSortBy} setOrderBy={setOrderBy} setPage={setPage} setLimit={setLimit} totalPages = {Math.ceil(reviews[0].total_count/limit)}/>
+            <Queries setSortBy={setSortBy} setOrderBy={setOrderBy} setPage={setPage} setLimit={setLimit} limit={limit} totalPages={Math.ceil(reviews[0].total_count/limit)}/>
             <h2>Total Reviews: {reviews[0].total_count}</h2>
             <ul className='review-list'>
                 {reviews.map((review) => {
