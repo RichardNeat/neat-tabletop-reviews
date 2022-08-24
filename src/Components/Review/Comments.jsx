@@ -9,6 +9,7 @@ export default function Comments ({id, comment_count}) {
     const [err, setErr] = useState(null);
 
     useEffect(() => {
+        setIsLoading(true);
         getCommentsById(id).then(({data}) => {
             setComments(data.comments);
             setIsLoading(false);

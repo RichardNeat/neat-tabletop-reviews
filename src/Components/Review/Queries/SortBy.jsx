@@ -1,7 +1,6 @@
 export default function SortBy ({setSortBy}) {
 
     const apiSortBys = ["None", "category", "created_at", "designer", "comment_count", "owner", "title", "votes"];
-
     const sortBys = ["None", "Category", "Date Created", "Designer", "Number of Comments", "Owner", "Title", "Votes"]
 
     const handleSortChange = (event) => {
@@ -18,7 +17,6 @@ export default function SortBy ({setSortBy}) {
             Sort by: {}
             <select onChange={handleSortChange}>
                 {apiSortBys.map((option, index) => {
-                    console.log(index)
                     return <option value={option} key={option} >{sortBys[index]}</option>
                 })}
             </select> {}

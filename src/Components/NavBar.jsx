@@ -8,6 +8,7 @@ export default function NavBar () {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
+        setIsLoading(true);
         getCategories().then(({data}) => {
             setCategories(data.categories);
             setIsLoading(false);

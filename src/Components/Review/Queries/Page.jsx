@@ -1,17 +1,18 @@
-export default function Page ({setPage}) {
+export default function Page ({setPage, totalPages}) {
 
     const handlePageChange = (event) => {
         setPage(event.target.value);
     };
 
+    console.log(Array.from(Array(totalPages).keys()))
+
     return (
         <>
             Page: {}
             <select onChange={handlePageChange}>
-                {/* need to generalise this to auto fill how many pages is required */}
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
+                {Array.from(Array(totalPages).keys()).map((page, index) => {
+                    return <option>{index + 1}</option>
+                })}
             </select>
         </>
     );

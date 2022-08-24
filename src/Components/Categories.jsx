@@ -10,6 +10,7 @@ export default function Categories () {
     const {category} = useParams();
 
     useEffect(() => {
+        setIsLoading(true);
         getReviewsByCategory(category).then(({data}) => {
             setCategoryList(data.reviews)
             setIsLoading(false);
