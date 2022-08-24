@@ -10,6 +10,7 @@ export default function DeleteComment ({id, setDeleted, setSuccess}) {
     const [buttonDisabled, setButtonDisabled] = useState(false);
 
     const handleClick = () => {
+        setErr(false);
         setButtonDisabled(true);
         setSuccess(false);
         setDeleted(false);
