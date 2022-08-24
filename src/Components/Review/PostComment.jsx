@@ -1,9 +1,8 @@
 import { useState } from "react"
 import { postComment } from "../../apis";
 
-export default function PostComment ({id, setDeleted, success, setSuccess}) {
+export default function PostComment ({id, setDeleted, success, setSuccess, author}) {
 
-    const [author, setAuthor] = useState("happyamy2016");
     const [body, setBody] = useState('');
     const [submitted, setSubmitted] = useState(false);
     const [err, setErr] = useState(false);

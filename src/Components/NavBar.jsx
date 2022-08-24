@@ -18,8 +18,9 @@ export default function NavBar () {
     if (isLoading) return <p>Loading Categories...</p>
 
     return (
-        <>
-            <h3>Categories:</h3>
+        <>  
+            <p>User: happyamy2016</p>
+            <h4>Categories:</h4>
             <ul>
                 {categories.map((category) => {
                     return <li key={category.slug}><Link to={`/${category.slug}`}>{category.slug}</Link></li>

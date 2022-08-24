@@ -10,6 +10,7 @@ export default function Comments ({id, comment_count}) {
     const [err, setErr] = useState(null);
     const [deleted, setDeleted] = useState(false);
     const [success, setSuccess] = useState(false);
+    const [author, setAuthor] = useState("happyamy2016");
 
     useEffect(() => {
         getCommentsById(id).then(({data}) => {
@@ -23,7 +24,7 @@ export default function Comments ({id, comment_count}) {
 
     return (
         <section className="comments-list">
-            <PostComment id={id} success={success} setSuccess={setSuccess} setDeleted={setDeleted}/>
+            <PostComment id={id} success={success} setSuccess={setSuccess} setDeleted={setDeleted} author={author}/>
             {isLoading && !err ? <p>Loading Comments...</p>: null}
             {err ? <p>{err}</p>: null}
             {deleted ? <p>Comment Deleted!</p>: null}
@@ -35,7 +36,7 @@ export default function Comments ({id, comment_count}) {
                             Created At: {comment.created_at} <br></br>
                             {comment.body} <br></br>
                             <strong>Votes: </strong>{comment.votes} <br></br>
-                            <DeleteComment id={comment.comment_id} setDeleted={setDeleted} setSuccess={setSuccess}/>
+                            {comment.author === author ? <DeleteComment id={comment.comment_id} setDeleted={setDeleted} setSuccess={setSuccess}/>: null}
                             </li>
                     })}
             </ul>
