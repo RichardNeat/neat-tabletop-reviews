@@ -126,6 +126,10 @@ li {
   background-color: beige;
 }
 
+#limit {
+  max-width: 20px;
+}
+
 @media screen and (min-width: 600px) {
     /* .review {
       display: grid;

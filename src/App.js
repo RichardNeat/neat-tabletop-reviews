@@ -5,6 +5,7 @@ import Home from './Components/Home';
 import NavBar from './Components/NavBar';
 import Categories from './Components/Categories';
 import ReviewById from './Components/Review/ReviewById';
+import OrderBy from './Components/Review/Queries';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <Route path='/' element={<Home />}/>
           <Route path='/:category' element={<Categories />}/>
           <Route path='/review/:review_id' element={<ReviewById/>}/>
+          <Route path='/reviews' element={<OrderBy/>}/>
         </Routes>
       </div>
     </BrowserRouter>

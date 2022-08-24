@@ -12,6 +12,7 @@ export default function ReviewById () {
     const [err, setErr] = useState(null);
 
     useEffect(() => {
+        setIsLoading(true);
         getReviewById(review_id).then(({data}) => {
             setReview(data.review);
             setIsLoading(false);

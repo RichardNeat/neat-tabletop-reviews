@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-export const getReviews = () => {
-    return axios.get('https://neat-games.herokuapp.com/api/reviews');
+export const getReviews = (sortBy = "created_at", order = "DESC", p = 1, limit = 10) => {
+    return axios.get(`https://neat-games.herokuapp.com/api/reviews?sort_by=${sortBy}&order=${order}&limit=${limit}&p=${p}`);
 };
 
 export const getCategories = () => {
@@ -25,6 +25,5 @@ export const getCommentsById = (id) => {
 };
 
 export const postComment = (id, username, body) => {
-    console.log(id, username, body);
     return axios.post(`https://neat-games.herokuapp.com/api/reviews/${id}/comments`, {username, body})
 };
