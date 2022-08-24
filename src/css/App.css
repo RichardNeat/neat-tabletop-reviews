@@ -151,7 +151,7 @@ li {
   width: 420px;
   margin: 10px;
   border: black solid 2px;
-  background-color: white
+  background-color: white;
 }
 
 #comment-body-green {
@@ -159,7 +159,7 @@ li {
   width: 420px;
   margin: 10px;
   border: greenyellow solid 2px;
-  background-color: beige;
+  background-color: white;
 }
 
 #limit {

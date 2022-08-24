@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getReviews } from "../apis";
 import Queries from "./Review/Queries";
+import Moment from "moment";
 
 export default function Home () {
 
@@ -40,7 +41,7 @@ export default function Home () {
                         <p className="comment-count">Comments: {review.comment_count} Votes: {review.votes}</p>
                         <img className="review-img" src={review.review_img_url} alt={review.title}></img>
                         <p className="author-info">Written by {review.owner}</p>
-                        <p className="created-at">Date: {review.created_at}</p>
+                        <p className="created-at">Created: {Moment(review.created_at).format("Do MMM YYYY")}</p>
                         <Link to={`/review/${review.review_id}`} className="see-more">See More</Link>
                         </li>
                 })}

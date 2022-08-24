@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { getCommentsById } from "../../apis";
 import PostComment from "./PostComment";
 import DeleteComment from "./Queries/DeleteComment";
+import Moment from 'moment';
 
 export default function Comments ({id, comment_count}) {
 
@@ -34,7 +35,7 @@ export default function Comments ({id, comment_count}) {
                 {comments.map((comment) => {
                     return <li key={comment.comment_id} className="comment">
                             <strong>Written by </strong>{comment.author} <br></br>
-                            Created At: {comment.created_at} <br></br>
+                            Created: {Moment(comment.created_at).format("Do MMM YYYY")} <br></br>
                             {comment.body} <br></br>
                             <strong>Votes: </strong>{comment.votes} <br></br>
                             {comment.author === author ? <DeleteComment id={comment.comment_id} setDeleted={setDeleted} setSuccess={setSuccess}/>: null}
