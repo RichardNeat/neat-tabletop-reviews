@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getCommentsById } from "../../apis";
 import PostComment from "./PostComment";
+import DeleteComment from "./Queries/DeleteComment";
 
 export default function Comments ({id, comment_count}) {
 
@@ -31,7 +32,8 @@ export default function Comments ({id, comment_count}) {
                             <strong>Written by </strong>{comment.author} <br></br>
                             Created At: {comment.created_at} <br></br>
                             {comment.body} <br></br>
-                            <strong>Votes: </strong>{comment.votes}
+                            <strong>Votes: </strong>{comment.votes} <br></br>
+                            <DeleteComment id={comment.comment_id}/>
                             </li>
                     })}
             </ul>
