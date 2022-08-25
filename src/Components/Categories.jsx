@@ -22,7 +22,7 @@ export default function Categories () {
     }, [category]);
 
     if (isLoading) return <p>Loading Reviews...</p>
-    if (err) return <p>Sorry there has been a problem, please try again</p>
+    if (err) return <p>Review category not found, please try again</p>
     
     return (
         <>
