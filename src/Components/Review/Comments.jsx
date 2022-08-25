@@ -39,6 +39,7 @@ export default function Comments ({id, comment_count}) {
                             {comment.body} <br></br>
                             <strong>Votes: </strong>{comment.votes} <br></br>
                             {comment.author === author ? <DeleteComment id={comment.comment_id} setDeleted={setDeleted} setSuccess={setSuccess}/>: null}
+                            {/* add votes here */}
                             </li>
                     })}
             </ul>

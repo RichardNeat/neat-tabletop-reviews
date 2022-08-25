@@ -26,7 +26,7 @@ export default function Categories () {
     
     return (
         <>
-            <h2>All {category} reviews</h2>
+            <h2 className="category-title">All {category} reviews</h2>
             {categoryList.map((review) => {
                 return <li key={review.review_id} className="review">
                 <h3 className="review-title">{review.title}</h3>

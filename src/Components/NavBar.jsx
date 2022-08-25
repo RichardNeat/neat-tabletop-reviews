@@ -20,7 +20,6 @@ export default function NavBar () {
     return (
         <section className="nav">  
             <p>User: happyamy2016</p>
-            <h4>Categories:</h4>
             <ul>
                 {categories.map((category) => {
                     return <li key={category.slug}><Link to={`/reviews/${category.slug}`}>{category.slug}</Link></li>

@@ -31,7 +31,7 @@ export default function Home () {
     if (err) return <p>Sorry there has been a problem, please try again</p>
 
     return (
-        <section>
+        <section className="review-container">
             <Queries setSortBy={setSortBy} setOrderBy={setOrderBy} setPage={setPage} setLimit={setLimit} limit={limit} totalPages={Math.ceil(reviews[0].total_count/limit)}/>
             <ul className='review-list'>
                 {reviews.map((review) => {
