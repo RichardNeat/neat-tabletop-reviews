@@ -8,11 +8,11 @@ export default function Queries ({setSortBy, setOrderBy, setPage, setLimit, tota
     // come back to here to explore adding queries to the url
 
     return (
-        <>
+        <section className="queries">
             <SortBy setSortBy={setSortBy}/>
             <OrderBy setOrderBy={setOrderBy}/>
             <Page setPage={setPage} totalPages={totalPages}/>
-            <Limit limit={limit} setLimit={setLimit}/>
-        </>
+            <Limit limit={limit} setLimit={setLimit} setPage={setPage}/>
+        </section>
     );
 };

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getReviews } from "../apis";
 import Queries from "./Review/Queries";
+import Moment from "moment";
 
 export default function Home () {
 
@@ -11,7 +12,7 @@ export default function Home () {
     const [sortBy, setSortBy] = useState('created_at');
     const [orderBy, setOrderBy] = useState('DESC');
     const [page, setPage] = useState(1);
-    const [limit, setLimit] = useState(10);    
+    const [limit, setLimit] = useState(10);  
 
     useEffect(() => {
         setIsLoading(true);
@@ -32,17 +33,15 @@ export default function Home () {
     return (
         <section>
             <Queries setSortBy={setSortBy} setOrderBy={setOrderBy} setPage={setPage} setLimit={setLimit} limit={limit} totalPages={Math.ceil(reviews[0].total_count/limit)}/>
-            <h2>Total Reviews: {reviews[0].total_count}</h2>
             <ul className='review-list'>
                 {reviews.map((review) => {
                     return <li key={review.review_id} className="review">
                         <h3 className="review-title">{review.title}</h3>
                         <p className="category-tag">Category: {review.category}</p>
                         <p className="comment-count">Comments: {review.comment_count} Votes: {review.votes}</p>
-                        <p className="designer">Designer: {review.designer}</p>
                         <img className="review-img" src={review.review_img_url} alt={review.title}></img>
                         <p className="author-info">Written by {review.owner}</p>
-                        <p className="created-at">Date: {review.created_at}</p>
+                        <p className="created-at">Created: {Moment(review.created_at).format("Do MMM YYYY")}</p>
                         <Link to={`/review/${review.review_id}`} className="see-more">See More</Link>
                         </li>
                 })}

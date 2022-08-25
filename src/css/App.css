@@ -1,10 +1,42 @@
 .App {
   text-align: center;
+  display: grid;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+/* body {
+  background-image: url('/background2.jpg');
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+
+.title {
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid black;
+  background-color: beige;
+  padding: 10px;
+}
+
+.nav {
+  border: 1px solid black;
+  background-color: beige;
+  display: block;
+  /* width: 350px; */
+}
+
+.queries {
+  border: 1px solid black;
+  background-color: beige;
+  padding: 15px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -42,12 +74,16 @@ li {
 }
 
 .review-list {
+  display: inline;
   align-items: center;
 }
 
 .review {
   align-items: center;
   border: 2px solid black;
+  border-radius: 30px;
+  margin: 10px;
+  background-color: beige;
 }
 
 .review-img {
@@ -69,8 +105,8 @@ li {
 .single-review {
   display: inline-block;
   align-items: center;
-  border: 2px solid black;
   padding: 10px;
+  background-color: beige;
 }
 
 .review-body {
@@ -78,11 +114,13 @@ li {
   border: 2px solid black;
   border-radius: 10px;
 }
+
 .upVote-button {
   margin: 5px;
   background-color: greenyellow;
   border-radius: 10px;
 }
+
 .downVote-button {
   margin: 5px;
   background-color: orangered;
@@ -95,6 +133,7 @@ li {
   padding: 10px;
   border: 2px solid black;
   border-radius: 10px;
+  background-color: beige;
 }
 
 .comment {
@@ -115,7 +154,7 @@ li {
   width: 420px;
   margin: 10px;
   border: black solid 2px;
-  background-color: beige;
+  background-color: white;
 }
 
 #comment-body-green {
@@ -123,7 +162,7 @@ li {
   width: 420px;
   margin: 10px;
   border: greenyellow solid 2px;
-  background-color: beige;
+  background-color: white;
 }
 
 #limit {
@@ -131,15 +170,12 @@ li {
 }
 
 @media screen and (min-width: 600px) {
-    /* .review {
-      display: grid;
-      height: 1fr;
-      grid-template-areas: 
-      'title title title'
-      'review review review';
-      grid-template-columns: 1fr 4fr;
-      grid-template-rows: auto 1fr;
-    }   */
+    .App {
+      /* text-align: center; */
+      display: block;
+      /* align-items: center; */
+    }  
+
     .review-list {
       display: inline-block;
     }
@@ -147,9 +183,18 @@ li {
     .review {
       display: inline-block;
       width: 400px;
-      height: 600px;
+      height: 500px;
     }
     .single-review {
       max-width: 1450px;
+    }
+    .review-img {
+      width: 200px;
+      height: 150px
+    }
+    .review-title {
+      max-height: 10px;
+      padding: 25px;
+      margin: 10px
     }
 }
