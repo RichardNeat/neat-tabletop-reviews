@@ -7,16 +7,27 @@ export default function Users () {
 
     const {currUser, setCurrUser} = useContext(UserContext);
     const [users, setUsers] = useState([]);
+    const [err, setErr] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
+        setErr(false);
         getUsers().then(({data}) => {
             setUsers(data.users);
+            setIsLoading(false);
+        })
+        .catch(() => {
+            setErr(true);
+            setIsLoading(false);
         });
-    });
+    }, []);
 
     const changeUser = (event) => {
         setCurrUser(event.target.value)
     };
+
+    if (isLoading) return <p className="loading-errors">Loading Users...</p>
+    if (err) return <p className="loading-errors">Something went wrong please try again</p>
 
     return (
         <section className="users-list">
