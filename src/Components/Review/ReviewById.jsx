@@ -24,8 +24,8 @@ export default function ReviewById () {
         });
     }, [review_id]);
 
-    if (isLoading) return <p>Loading Review...</p>
-    if (err) return <p>Review not found, please try again</p>
+    if (isLoading) return <p className="loading-errors">Loading Review...</p>
+    if (err) return <p className="loading-errors">Review not found, please try again</p>
 
     return (
             <section className="single-review">

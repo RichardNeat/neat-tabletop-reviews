@@ -15,7 +15,7 @@ export default function NavBar () {
         });
     }, [setCategories]);
 
-    if (isLoading) return <p>Loading Categories...</p>
+    if (isLoading) return <p className="loading-errors">Loading Categories...</p>
 
     return (
         <section className="nav">  

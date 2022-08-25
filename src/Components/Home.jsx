@@ -27,8 +27,8 @@ export default function Home () {
 
     // console.log(sortBy, orderBy, page, limit);
 
-    if (isLoading) return <p>Loading Reviews...</p>
-    if (err) return <p>Sorry there has been a problem, please try again</p>
+    if (isLoading) return <p className="loading-errors">Loading Reviews...</p>
+    if (err) return <p className="loading-errors">Sorry there has been a problem, please try again</p>
 
     return (
         <section className="review-container">

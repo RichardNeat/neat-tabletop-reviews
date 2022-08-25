@@ -21,8 +21,8 @@ export default function Categories () {
         });
     }, [category]);
 
-    if (isLoading) return <p>Loading Reviews...</p>
-    if (err) return <p>Review category not found, please try again</p>
+    if (isLoading) return <p className="loading-errors">Loading Reviews...</p>
+    if (err) return <p className="loading-errors">Review category not found, please try again</p>
     
     return (
         <>
