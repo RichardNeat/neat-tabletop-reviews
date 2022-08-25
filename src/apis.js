@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export const getReviews = (sortBy = "created_at", order = "DESC", p = 1, limit = 10) => {
+    if (limit === 0) limit = 10;
     return axios.get(`https://neat-games.herokuapp.com/api/reviews?sort_by=${sortBy}&order=${order}&limit=${limit}&p=${p}`);
 };
 

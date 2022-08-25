@@ -50,6 +50,7 @@ body {
   background-color: beige;
   padding: 10px;
   margin: 20px;
+  max-width: 200px;
 }
 
 .nav {
