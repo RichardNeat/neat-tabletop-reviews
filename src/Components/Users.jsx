@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { getUsers } from "../apis";
 import { useContext } from "react";
-import { UserContext } from "../contexts/current-user";
+import { UserContext, LoggedInContext } from "../contexts/current-user";
 
 export default function Users () {
 
+    // eslint-disable-next-line
+    const {isLoggedIn, setIsLoggedIn} = useContext(LoggedInContext);
     const {currUser, setCurrUser} = useContext(UserContext);
     const [users, setUsers] = useState([]);
     const [err, setErr] = useState(false);
@@ -23,7 +25,8 @@ export default function Users () {
     }, []);
 
     const changeUser = (event) => {
-        setCurrUser(event.target.value)
+        setCurrUser(event.target.value);
+        setIsLoggedIn(true);
     };
 
     if (isLoading) return <p className="loading-errors">Loading Users...</p>

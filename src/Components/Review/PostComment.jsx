@@ -1,8 +1,12 @@
 import { useState } from "react"
 import { Link } from "react-router-dom";
 import { postComment } from "../../apis";
+import { useContext } from "react";
+import { UserContext } from "../../contexts/current-user";
 
-export default function PostComment ({id, setDeleted, success, setSuccess, user}) {
+export default function PostComment ({id, setDeleted, success, setSuccess}) {
+
+    const {currUser, setCurrUser} = useContext(UserContext);
 
     const [body, setBody] = useState('');
     const [submitted, setSubmitted] = useState(false);
@@ -12,23 +16,22 @@ export default function PostComment ({id, setDeleted, success, setSuccess, user}
     const [guest, setGuest] = useState(false);
 
     const handleChange = (event) => {
-        if (user === 'guest') {
+        if (currUser === 'guest') {
             setGuest(true);
+            setSubmitted(true);
         };
         setBody(event.target.value)
         setDeleted(false);
     };
 
     const handleSubmit = (event) => {
-        if (user === 'guest') {
-            setGuest(true);
-        };
+        if (currUser === 'guest') setGuest(true);
         setSuccess(false);
         setIsLoading(true);
         event.preventDefault();
         if (body.length > 0) {
             setSubmitted(true);
-            postComment(id, user, body).then(() => {
+            postComment(id, currUser, body).then(() => {
                 setSuccess(true);
                 setErr(false);
                 setIsBodyEmpty(false);
@@ -43,6 +46,7 @@ export default function PostComment ({id, setDeleted, success, setSuccess, user}
             });
         } else {
             setIsBodyEmpty(true);
+            if (currUser === 'guest') setIsBodyEmpty(false);
             setErr(null);
             setIsLoading(false);
         };
@@ -52,7 +56,7 @@ export default function PostComment ({id, setDeleted, success, setSuccess, user}
         <section className="post-comment">
             <h3>Post a new comment</h3>
             <form onSubmit={handleSubmit}>
-                <h4>User: {user}</h4>
+                <h4>User: {currUser}</h4>
                 <label htmlFor="comment-body">New Comment: </label>
                 <textarea value={body} onChange={handleChange} type="text" id={body.length === 0 ? "comment-body": "comment-body-green"}></textarea>
                 <button disabled={submitted ? true: false}>Submit</button> <br></br>

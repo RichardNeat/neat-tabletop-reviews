@@ -1,7 +1,7 @@
 import './css/App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
-import { UserContext } from './contexts/current-user';
+import { UserContext, LoggedInContext } from './contexts/current-user';
 import Header from './Components/Header';
 import Home from './Components/Home';
 import NavBar from './Components/NavBar';
@@ -14,23 +14,26 @@ import Users from './Components/Users';
 function App() {
 
   const [currUser, setCurrUser] = useState('guest');
+  const [isLoggedIn, setIsLoggedIn] = useState('false');
 
   return (
     <UserContext.Provider value={{currUser, setCurrUser}}>
+    <LoggedInContext.Provider value={{isLoggedIn, setIsLoggedIn}}>
       <BrowserRouter>
         <div className="App">
-          <Header user={currUser} setCurrUser={setCurrUser} />
+          <Header />
           <NavBar />
           <Routes>  
             <Route path='/' element={<Home />}/>
             <Route path='/reviews/:category' element={<Categories />}/>
-            <Route path='/review/:review_id' element={<ReviewById user={currUser}/>}/>
+            <Route path='/review/:review_id' element={<ReviewById />}/>
             <Route path='/reviews' element={<OrderBy/>}/>
             <Route path='/users' element={<Users/>}/>
             <Route path='/*' element={<ErrorPage/>}/>
           </Routes>
         </div>
       </BrowserRouter>
+    </LoggedInContext.Provider>
     </UserContext.Provider>
   );
 };

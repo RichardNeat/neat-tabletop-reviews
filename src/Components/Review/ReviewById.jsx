@@ -4,7 +4,7 @@ import { getReviewById } from "../../apis";
 import Votes from "./Votes";
 import Comments from "./Comments";
 
-export default function ReviewById ({user}) {
+export default function ReviewById () {
 
     const {review_id} = useParams();
     const [review, setReview] = useState({});
@@ -35,7 +35,7 @@ export default function ReviewById ({user}) {
                 <p className="category-tag"><strong>Category: </strong>{review.category}</p>
                 <p className="review-body">{review.review_body}</p>
                 <Votes id = {review.review_id} votes = {review.votes}/>
-                <Comments id = {review.review_id} comment_count = {review.comment_count} user={user}/>
+                <Comments id = {review.review_id} comment_count = {review.comment_count}/>
             </section>
     );
 };
