@@ -16,7 +16,7 @@ Hosted Version Link:
 
 https://neat-games.herokuapp.com/api
 
-If you wish to run this projet locally you can 'clone' this repo from gitHub, first 'cd' into the folder you wish to clone it down to and run the following commands:
+If you wish to run this project locally you can 'clone' this repo from gitHub, first 'cd' into the folder you wish to clone it down to and run the following commands:
 
 git clone https://github.com/RichardNeat/neat-tabletop-reviews.git
 cd neat-tabletop-reviews
@@ -26,3 +26,4 @@ cd neat-tabletop-reviews
 In order to run this project the minimimum version requirements are as follows:
 
 Node.js: "18.6.0"
+
