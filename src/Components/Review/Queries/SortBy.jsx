@@ -1,7 +1,7 @@
 export default function SortBy ({setSortBy}) {
 
     const apiSortBys = ["None", "category", "created_at", "designer", "comment_count", "owner", "title", "votes"];
-    const sortBys = ["None", "Category", "Date Created", "Designer", "Number of Comments", "Owner", "Title", "Votes"]
+    const sortBys = ["None", "Category", "Date Created", "Designer", "Number of Comments", "Owner", "Title", "Score"]
 
     const handleSortChange = (event) => {
         const value = event.target.value;

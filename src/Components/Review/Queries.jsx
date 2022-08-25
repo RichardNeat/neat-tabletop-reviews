@@ -5,8 +5,6 @@ import Page from "./Queries/Page";
 
 export default function Queries ({setSortBy, setOrderBy, setPage, setLimit, totalPages, limit}) {
 
-    // come back to here to explore adding queries to the url
-
     return (
         <section className="queries">
             <SortBy setSortBy={setSortBy}/>
