@@ -36,3 +36,7 @@ export const postComment = (id, username, body) => {
 export const deleteComment = (id) => {
     return axios.delete(`https://neat-games.herokuapp.com/api/comments/${id}`);
 };
+
+export const getUsers = () => {
+    return axios.get('https://neat-games.herokuapp.com/api/users');
+};
