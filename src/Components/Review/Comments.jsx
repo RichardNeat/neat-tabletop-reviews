@@ -5,14 +5,13 @@ import DeleteComment from "./Queries/DeleteComment";
 import Moment from 'moment';
 import Votes from "./Votes";
 
-export default function Comments ({id, comment_count}) {
+export default function Comments ({id, comment_count, user}) {
 
     const [comments, setComments] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [err, setErr] = useState(null);
     const [deleted, setDeleted] = useState(false);
     const [success, setSuccess] = useState(false);
-    const [author, setAuthor] = useState("happyamy2016");
 
     useEffect(() => {
         getCommentsById(id).then(({data}) => {
@@ -26,7 +25,7 @@ export default function Comments ({id, comment_count}) {
 
     return (
         <section className="comments-list">
-            <PostComment id={id} success={success} setSuccess={setSuccess} setDeleted={setDeleted} author={author}/>
+            <PostComment id={id} success={success} setSuccess={setSuccess} setDeleted={setDeleted} user={user}/>
             {isLoading && !err ? <p>Loading Comments...</p>: null}
             {err ? <p>{err}</p>: null}
             {deleted ? <p>Comment Deleted!</p>: null}
@@ -38,7 +37,7 @@ export default function Comments ({id, comment_count}) {
                             <strong>Written by </strong>{comment.author} <br></br>
                             Created: {Moment(comment.created_at).format("Do MMM YYYY")} <br></br>
                             <p className="comment-body">{comment.body}</p>
-                            {comment.author === author ? <DeleteComment id={comment.comment_id} setDeleted={setDeleted} setSuccess={setSuccess}/>: null}
+                            {comment.author === user ? <DeleteComment id={comment.comment_id} setDeleted={setDeleted} setSuccess={setSuccess}/>: null}
                             <Votes comment_id = {comment.comment_id} comment_votes = {comment.votes}/>
                             </li>
                     })}

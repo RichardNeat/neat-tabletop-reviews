@@ -3,8 +3,6 @@ import { deleteComment } from "../../../apis";
 
 export default function DeleteComment ({id, setDeleted, setSuccess}) {
 
-    // implement functionality where user can only delete their own comment once users has been added
-
     const [isLoading, setIsLoading] = useState(false);
     const [err, setErr] = useState(false);
     const [buttonDisabled, setButtonDisabled] = useState(false);

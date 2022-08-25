@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { postComment } from "../../apis";
 
-export default function PostComment ({id, setDeleted, success, setSuccess, author}) {
+export default function PostComment ({id, setDeleted, success, setSuccess, user}) {
 
     const [body, setBody] = useState('');
     const [submitted, setSubmitted] = useState(false);
@@ -20,7 +20,7 @@ export default function PostComment ({id, setDeleted, success, setSuccess, autho
         event.preventDefault();
         if (body.length > 0) {
             setSubmitted(true);
-            postComment(id, author, body).then(() => {
+            postComment(id, user, body).then(() => {
                 setSuccess(true);
                 setErr(false);
                 setIsBodyEmpty(false);
@@ -44,8 +44,7 @@ export default function PostComment ({id, setDeleted, success, setSuccess, autho
         <section className="post-comment">
             <h3>Post a new comment</h3>
             <form onSubmit={handleSubmit}>
-                {/* generalise this when user is added to auto fill this information */}
-                <h4>User: {author}</h4>
+                <h4>User: {user}</h4>
                 <label htmlFor="comment-body">New Comment: </label>
                 <textarea value={body} onChange={handleChange} type="text" id={body.length === 0 ? "comment-body": "comment-body-green"}></textarea>
                 <button disabled={submitted ? true: false}>Submit</button> <br></br>
