@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Header ({user}) {
+export default function Header ({user, setCurrUser}) {
 
     return (
         <section className="title">

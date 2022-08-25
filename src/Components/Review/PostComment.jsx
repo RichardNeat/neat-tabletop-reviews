@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom";
 import { postComment } from "../../apis";
 
 export default function PostComment ({id, setDeleted, success, setSuccess, user}) {
@@ -8,13 +9,20 @@ export default function PostComment ({id, setDeleted, success, setSuccess, user}
     const [err, setErr] = useState(false);
     const [isBodyEmpty, setIsBodyEmpty] = useState(false)
     const [isLoading, setIsLoading] = useState(false);
+    const [guest, setGuest] = useState(false);
 
     const handleChange = (event) => {
+        if (user === 'guest') {
+            setGuest(true);
+        };
         setBody(event.target.value)
         setDeleted(false);
     };
 
     const handleSubmit = (event) => {
+        if (user === 'guest') {
+            setGuest(true);
+        };
         setSuccess(false);
         setIsLoading(true);
         event.preventDefault();
@@ -52,6 +60,8 @@ export default function PostComment ({id, setDeleted, success, setSuccess, user}
                 {success ? <p>Your comment has been added!</p>: null}
                 {isBodyEmpty ? <p>Please enter some text!</p>: null}
                 {isLoading ? <p>Posting...</p>: null}
+                {guest ? <p>You must be logged in to add a comment</p>: null}
+                {guest ? <Link to={'/users'}>Login here!</Link>: null}
             </form>
         </section>
     )

@@ -13,13 +13,13 @@ import Users from './Components/Users';
 
 function App() {
 
-  const [currUser, setCurrUser] = useState('happyamy2016');
+  const [currUser, setCurrUser] = useState('guest');
 
   return (
     <UserContext.Provider value={{currUser, setCurrUser}}>
       <BrowserRouter>
         <div className="App">
-          <Header user={currUser} />
+          <Header user={currUser} setCurrUser={setCurrUser} />
           <NavBar />
           <Routes>  
             <Route path='/' element={<Home />}/>
