@@ -25,7 +25,7 @@ export default function ReviewById () {
     }, [review_id]);
 
     if (isLoading) return <p>Loading Review...</p>
-    if (err) return <p>Sorry that review has not been found, please try another</p>
+    if (err) return <p>Review not found, please try again</p>
 
     return (
         <>

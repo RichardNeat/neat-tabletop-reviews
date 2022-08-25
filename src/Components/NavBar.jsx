@@ -22,7 +22,7 @@ export default function NavBar () {
             <h3>Categories:</h3>
             <ul>
                 {categories.map((category) => {
-                    return <li key={category.slug}><Link to={`/${category.slug}`}>{category.slug}</Link></li>
+                    return <li key={category.slug}><Link to={`/reviews/${category.slug}`}>{category.slug}</Link></li>
                 })}
             </ul>
         </>
