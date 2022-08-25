@@ -14,7 +14,7 @@ import Users from './Components/Users';
 function App() {
 
   const [currUser, setCurrUser] = useState('guest');
-  const [isLoggedIn, setIsLoggedIn] = useState('false');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <UserContext.Provider value={{currUser, setCurrUser}}>
