@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { addVote } from "../../apis"
 
-export default function Votes ({id, votes}) {
+export default function Votes ({id, votes, comment_id, comment_votes}) {
 
-    const [voteTally, setVoteTally] = useState(votes);
+    // console.log(id, votes, comment_id, comment_votes)
+
+    const [voteTally, setVoteTally] = useState(votes ? votes: comment_votes);
     const [err, setErr] = useState(null);
     const [upClicks, setUpClicks] = useState(0);
     const [downClicks, setDownClicks] = useState(0);
@@ -18,7 +20,7 @@ export default function Votes ({id, votes}) {
             setDownDisabled(true);
             setUpClicks(1);
             setErr(null);
-            addVote(id, 1).catch(() => {
+            addVote(id, 1, comment_id).catch(() => {
                 setVoteTally((currVoteTally) => {
                     return currVoteTally - 1;
                 });
@@ -31,7 +33,12 @@ export default function Votes ({id, votes}) {
             setDownDisabled(false);
             setUpClicks(0);
             setErr(null);
-            addVote(id, -1)
+            addVote(id, -1, comment_id).catch(() => {
+                setVoteTally((currVoteTally) => {
+                    return currVoteTally - 1;
+                });
+                setErr('Something went wrong, please try again');
+            });
         };
     };
 
@@ -43,7 +50,7 @@ export default function Votes ({id, votes}) {
             setUpDisabled(true);
             setDownClicks(1);
             setErr(null);
-            addVote(id, -1).catch(() => {
+            addVote(id, -1, comment_id).catch(() => {
                 setVoteTally((currVoteTally) => {
                     return currVoteTally + 1;
                 });
@@ -56,7 +63,12 @@ export default function Votes ({id, votes}) {
             setUpDisabled(false)
             setDownClicks(0);
             setErr(null);
-            addVote(id, 1);
+            addVote(id, 1, comment_id).catch(() => {
+                setVoteTally((currVoteTally) => {
+                    return currVoteTally - 1;
+                });
+                setErr('Something went wrong, please try again');
+            });
         };
     };
     

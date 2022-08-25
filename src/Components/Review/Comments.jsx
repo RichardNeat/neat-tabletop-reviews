@@ -3,6 +3,7 @@ import { getCommentsById } from "../../apis";
 import PostComment from "./PostComment";
 import DeleteComment from "./Queries/DeleteComment";
 import Moment from 'moment';
+import Votes from "./Votes";
 
 export default function Comments ({id, comment_count}) {
 
@@ -36,10 +37,9 @@ export default function Comments ({id, comment_count}) {
                     return <li key={comment.comment_id} className="comment">
                             <strong>Written by </strong>{comment.author} <br></br>
                             Created: {Moment(comment.created_at).format("Do MMM YYYY")} <br></br>
-                            {comment.body} <br></br>
-                            <strong>Votes: </strong>{comment.votes} <br></br>
+                            <p className="comment-body">{comment.body}</p>
                             {comment.author === author ? <DeleteComment id={comment.comment_id} setDeleted={setDeleted} setSuccess={setSuccess}/>: null}
-                            {/* add votes here */}
+                            <Votes comment_id = {comment.comment_id} comment_votes = {comment.votes}/>
                             </li>
                     })}
             </ul>

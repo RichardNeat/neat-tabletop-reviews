@@ -17,8 +17,12 @@ export const getReviewById = (id) => {
     return axios.get(`https://neat-games.herokuapp.com/api/reviews/${id}`);
 };
 
-export const addVote = (id, vote) => {
-    return axios.patch(`https://neat-games.herokuapp.com/api/reviews/${id}`, {inc_votes: vote});
+export const addVote = (id, vote, comment_id) => {
+    if (comment_id) {
+        return axios.patch(`https://neat-games.herokuapp.com/api/comments/${comment_id}`, {inc_vote: vote});
+    } else {
+        return axios.patch(`https://neat-games.herokuapp.com/api/reviews/${id}`, {inc_votes: vote});
+    };
 };
 
 export const getCommentsById = (id) => {
