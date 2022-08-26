@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getUsers } from "../apis";
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext, LoggedInContext } from "../contexts/current-user";
 
 export default function Users () {
@@ -37,7 +37,7 @@ export default function Users () {
 
     return (
         <section className="users-list">
-            <h2 className="title">Current User: {currUser}</h2>
+            <Link className="post-review-link" to='/new-user'>Create a new account</Link>
             <ul>
             {users.map((user) => {
                 return (

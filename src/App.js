@@ -11,6 +11,7 @@ import OrderBy from './Components/Review/Queries';
 import ErrorPage from './Components/ErrorPage';
 import Users from './Components/Users';
 import PostReview from './Components/Review/PostReview';
+import NewUser from './Components/NewUser';
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
             <Route path='/review/:review_id' element={<ReviewById />}/>
             <Route path='/reviews' element={<OrderBy/>}/>
             <Route path='/users' element={<Users/>}/>
+            <Route path='/new-user' element={<NewUser/>}/>
             <Route path='/*' element={<ErrorPage/>}/>
           </Routes>
         </div>
