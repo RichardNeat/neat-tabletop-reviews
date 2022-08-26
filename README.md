@@ -8,6 +8,8 @@ The purpose of this project was to consolidate my understanding of making a C.R.
 
 Neat Tabletop Reviews is a board game review and and discussion website.
 Users can:
+
+- Create a new user
 - Select their user
 - View and vote on reviews as well as adding new reviews. 
 - Refine reviews by category, sort by a desired key, order by ascending/descending, access different pages and limit results shown per page.
