@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react";
 import { getUsers } from "../apis";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { UserContext, LoggedInContext } from "../contexts/current-user";
 
 export default function Users () {
 
+    const navigate = useNavigate();
     // eslint-disable-next-line
     const {isLoggedIn, setIsLoggedIn} = useContext(LoggedInContext);
     const {currUser, setCurrUser} = useContext(UserContext);
     const [users, setUsers] = useState([]);
     const [err, setErr] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
-
+    
     useEffect(() => {
         setErr(false);
         getUsers().then(({data}) => {
@@ -27,6 +29,7 @@ export default function Users () {
     const changeUser = (event) => {
         setCurrUser(event.target.value);
         setIsLoggedIn(true);
+        navigate(-1);
     };
 
     if (isLoading) return <p className="loading-errors">Loading Users...</p>

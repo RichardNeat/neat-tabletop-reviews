@@ -171,6 +171,7 @@ li {
   display: block;
   align-items: center;
   padding: 10px;
+  margin: 10px;
   border: 2px solid black;
   border-radius: 10px;
   background-color: beige;
@@ -246,6 +247,17 @@ li {
 #post-review-input-green {
   border: greenyellow solid 2px;
   background-color: white;
+}
+
+.delete-review {
+  color: white;
+  background-color: red;
+  margin: 10px;
+}
+
+.do-not-delete {
+  background-color: greenyellow;
+  margin: 10px;
 }
 
 @media screen and (min-width: 600px) {

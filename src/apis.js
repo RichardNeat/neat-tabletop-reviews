@@ -45,3 +45,7 @@ export const postReview = (owner, title, review_body, designer, category) => {
     console.log(owner, title, review_body, designer, category)
     return axios.post("https://neat-games.herokuapp.com/api/reviews", {owner, title, review_body, designer, category});
 };
+
+export const deleteReview = (id) => {
+    return axios.delete(`https://neat-games.herokuapp.com/api/reviews/${id}`);
+}

@@ -1,11 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { getReviewById } from "../../apis";
 import Votes from "./Votes";
 import Comments from "./Comments";
+import { UserContext } from "../../contexts/current-user";
+import DeleteReview from "./DeleteReview";
 
 export default function ReviewById () {
 
+    // eslint-disable-next-line
+    const {currUser, setCurrUser} = useContext(UserContext);
     const {review_id} = useParams();
     const [review, setReview] = useState({});
     const [isLoading, setIsLoading] = useState(true);
@@ -35,6 +39,8 @@ export default function ReviewById () {
                 <p className="category-tag"><strong>Category: </strong>{review.category}</p>
                 <p className="review-body">{review.review_body}</p>
                 <Votes id = {review.review_id} votes = {review.votes}/>
+                {currUser === review.owner ? <DeleteReview id={review.review_id}/>: null} <br></br>
+                {currUser === review.owner ? "(This cannot be undone!)": null}
                 <Comments id = {review.review_id} comment_count = {review.comment_count}/>
             </section>
     );
