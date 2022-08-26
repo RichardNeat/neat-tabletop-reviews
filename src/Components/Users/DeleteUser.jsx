@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { deleteUser } from "../../apis";
+import { UserContext } from "../../contexts/current-user";
 
 export default function DeleteUser ({username}) {
 
+    // eslint-disable-next-line
+    const {currUser, setCurrUser} = useContext(UserContext);
     const [secondCheck, setSecondCheck] = useState(false);
     const [err, setErr] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
@@ -20,6 +23,7 @@ export default function DeleteUser ({username}) {
             setIsLoading(false);
             setErr(true);
         });
+        setCurrUser("guest");
     };
 
     const handleNoClick = () => {
