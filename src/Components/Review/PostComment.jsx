@@ -6,6 +6,7 @@ import { UserContext } from "../../contexts/current-user";
 
 export default function PostComment ({id, setDeleted, success, setSuccess}) {
 
+    // eslint-disable-next-line
     const {currUser, setCurrUser} = useContext(UserContext);
 
     const [body, setBody] = useState('');

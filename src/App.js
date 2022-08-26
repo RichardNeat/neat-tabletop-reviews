@@ -10,6 +10,7 @@ import ReviewById from './Components/Review/ReviewById';
 import OrderBy from './Components/Review/Queries';
 import ErrorPage from './Components/Review/ErrorPage';
 import Users from './Components/Users';
+import PostReview from './Components/Review/PostReview';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
           <NavBar />
           <Routes>  
             <Route path='/' element={<Home />}/>
+            <Route path='/post-review' element={<PostReview/>}/>
             <Route path='/reviews/:category' element={<Categories />}/>
             <Route path='/review/:review_id' element={<ReviewById />}/>
             <Route path='/reviews' element={<OrderBy/>}/>

@@ -227,6 +227,16 @@ li {
   border-radius: 15px;
   margin: 15px;
 }
+.post-review-link {
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid black;
+  background-color: beige;
+  padding: 10px;
+  margin: 20px;
+}
 
 @media screen and (min-width: 600px) {
     .App {

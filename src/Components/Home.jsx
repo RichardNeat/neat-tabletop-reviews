@@ -33,6 +33,7 @@ export default function Home () {
     return (
         <section className="review-container">
             <Queries setSortBy={setSortBy} setOrderBy={setOrderBy} setPage={setPage} setLimit={setLimit} limit={limit} totalPages={Math.ceil(reviews[0].total_count/limit)}/>
+            <Link className="post-review-link" to={'/post-review'}>Post a New Review!</Link>
             <ul className='review-list'>
                 {reviews.map((review) => {
                     return <li key={review.review_id} className="review">
