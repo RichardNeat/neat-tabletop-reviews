@@ -26,7 +26,7 @@ export default function DeleteComment ({id, setDeleted, setSuccess}) {
 
     return (
         <>
-            <button disabled={buttonDisabled ? true: false} onClick={handleClick}>Delete</button>
+            <button className="delete-review" disabled={buttonDisabled ? true: false} onClick={handleClick}>Delete</button>
             {isLoading ? <p>Deleting...</p>: null}
             {err ? <p>Something went wrong please try again</p>: null}
         </>

@@ -1,8 +1,8 @@
 import { useState } from "react"
 import { Link } from "react-router-dom";
-import { postComment } from "../../apis";
+import { postComment } from "../../../apis";
 import { useContext } from "react";
-import { UserContext } from "../../contexts/current-user";
+import { UserContext } from "../../../contexts/current-user";
 
 export default function PostComment ({id, setDeleted, success, setSuccess}) {
 

@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { getReviewById } from "../../apis";
 import Votes from "./Votes";
-import Comments from "./Comments";
+import Comments from "./Comments/Comments";
 import { UserContext } from "../../contexts/current-user";
 import DeleteReview from "./DeleteReview";
 

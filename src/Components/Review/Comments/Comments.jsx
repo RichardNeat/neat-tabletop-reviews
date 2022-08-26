@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useContext } from "react";
-import { UserContext } from "../../contexts/current-user";
-import { getCommentsById } from "../../apis";
+import { UserContext } from "../../../contexts/current-user";
+import { getCommentsById } from "../../../apis";
 import PostComment from "./PostComment";
-import DeleteComment from "./Queries/DeleteComment";
+import DeleteComment from "./DeleteComment";
 import Moment from 'moment';
-import Votes from "./Votes";
+import Votes from "../Votes";
 
 
 export default function Comments ({id, comment_count}) {
