@@ -12,6 +12,7 @@ import ErrorPage from './Components/ErrorPage';
 import Users from './Components/Users/Users';
 import PostReview from './Components/Review/PostReview';
 import NewUser from './Components/Users/NewUser';
+import Admin from './Components/Admin';
 
 function App() {
 
@@ -34,6 +35,7 @@ function App() {
             <Route path='/reviews' element={<OrderBy/>}/>
             <Route path='/users' element={<Users/>}/>
             <Route path='/new-user' element={<NewUser/>}/>
+            <Route path='/secretadminpage' element={<Admin />}/>
             <Route path='/*' element={<ErrorPage/>}/>
           </Routes>
         </div>

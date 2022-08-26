@@ -47,7 +47,7 @@ export default function Users () {
                             <p><strong>Name: </strong>{user.name}</p>
                             <button value={user.username} onClick={changeUser}>Select User</button>
                             {currUser === user.username ? " Logged in!": null}
-                            {/* {currUser === user.username ? <DeleteUser username={user.username}/>: null} */}
+                            {currUser === 'admin' ? <DeleteUser username={user.username}/>: null}
                         </li>
                     )
                 })}
