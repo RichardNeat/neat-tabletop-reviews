@@ -9,9 +9,9 @@ import Categories from './Components/Categories';
 import ReviewById from './Components/Review/ReviewById';
 import OrderBy from './Components/Review/Queries';
 import ErrorPage from './Components/ErrorPage';
-import Users from './Components/Users';
+import Users from './Components/Users/Users';
 import PostReview from './Components/Review/PostReview';
-import NewUser from './Components/NewUser';
+import NewUser from './Components/Users/NewUser';
 
 function App() {
 

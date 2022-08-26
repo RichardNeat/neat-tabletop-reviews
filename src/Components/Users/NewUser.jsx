@@ -1,11 +1,16 @@
 import { useState } from "react";
-import { postUser } from "../apis";
+import { postUser } from "../../apis";
+import { useNavigate } from "react-router-dom";
 
 export default function NewUser () {
+
+    const navigate = useNavigate();
 
     const [username, setUsername] = useState('');
     const [name, setName] = useState('');
     const [url, setUrl] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+    const [err, setErr] = useState(false);
 
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
@@ -20,13 +25,17 @@ export default function NewUser () {
     };
 
     const handleSubmit = (event) => {
+        setErr(false);
+        setIsLoading(true);
         event.preventDefault();
-        postUser(username, name, url).then((res) => {
-            console.log(res);
+        postUser(username, name, url).then(() => {
+            setIsLoading(false);
+            navigate('/users')
+        }).catch(() => {
+            setErr(true);
+            setIsLoading(false);
         });
     };
-
-    console.log(username, name, url);
 
     return (
         <section className="post-review-link">
@@ -40,6 +49,8 @@ export default function NewUser () {
                 <input onChange={handleUrlChange}></input></section> <br></br>
                 <button>Submit</button>
             </form>
+            {err ? <p>Sorry there has been a problem, please try again</p>: null}
+            {isLoading ? <p>Posting...</p>: null}
         </section>
 
     );

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { getUsers } from "../apis";
+import { getUsers } from "../../apis";
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { UserContext, LoggedInContext } from "../contexts/current-user";
+import { Link } from "react-router-dom";
+import { UserContext, LoggedInContext } from "../../contexts/current-user";
+import DeleteUser from "./DeleteUser";
 
 export default function Users () {
 
-    const navigate = useNavigate();
     // eslint-disable-next-line
     const {isLoggedIn, setIsLoggedIn} = useContext(LoggedInContext);
     const {currUser, setCurrUser} = useContext(UserContext);
@@ -24,12 +24,11 @@ export default function Users () {
             setErr(true);
             setIsLoading(false);
         });
-    }, []);
+    }, [users]);
 
     const changeUser = (event) => {
         setCurrUser(event.target.value);
         setIsLoggedIn(true);
-        navigate(-1);
     };
 
     if (isLoading) return <p className="loading-errors">Loading Users...</p>
@@ -37,6 +36,7 @@ export default function Users () {
 
     return (
         <section className="users-list">
+            <h3 className="post-review-link">Current User: {currUser}</h3> <br></br>
             <Link className="post-review-link" to='/new-user'>Create a new account</Link>
             <ul>
             {users.map((user) => {
@@ -46,6 +46,8 @@ export default function Users () {
                             <img className="user-img" src={user.avatar_url} alt={user.username}></img>
                             <p><strong>Name: </strong>{user.name}</p>
                             <button value={user.username} onClick={changeUser}>Select User</button>
+                            {currUser === user.username ? " Logged in!": null}
+                            {currUser === user.username ? <DeleteUser username={user.username}/>: null}
                         </li>
                     )
                 })}
