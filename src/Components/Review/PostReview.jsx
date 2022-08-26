@@ -13,6 +13,8 @@ export default function PostReview ({categories}) {
     const [body, setBody] = useState('');
     const [designer, setDesigner] = useState('');
     const [category, setCategory] = useState('strategy');
+    const [err, setErr] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleTitleChange = (event) => {
         setTitle(event.target.value)
@@ -31,10 +33,16 @@ export default function PostReview ({categories}) {
     };
 
     const handleSubmit = (event) => {
+        setIsLoading(true);
+        setErr(false);
         event.preventDefault();
         postReview(currUser, title, body, designer, category).then(({data}) => {
+            setIsLoading(false);
             navigate(`/review/${data.review.review_id}`);
-        });
+        }).catch(() => {
+            setIsLoading(false);
+            setErr(true);
+        })
     };
 
     return (
@@ -54,6 +62,8 @@ export default function PostReview ({categories}) {
                     })}
                 </select>
                 <button>Submit</button>
+                {isLoading ? <p>Posting review...</p>: null}
+                {err ? <p>Something went wrong, please try again</p>: null}
             </form>
         </section>
     );
