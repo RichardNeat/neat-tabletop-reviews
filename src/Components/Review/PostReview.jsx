@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { postReview } from "../../apis";
 import { UserContext } from "../../contexts/current-user";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function PostReview ({categories}) {
 
@@ -66,10 +66,12 @@ export default function PostReview ({categories}) {
                         return <option key={category} value={category.slug}>{category.slug}</option>
                     })}
                 </select></section><br></br>
-                <section><button>Submit</button></section>
+                <section><button disabled={currUser === "guest" ? true: false}>Submit</button></section>
                 {empty ? <p>Please fill in all the above fields</p>: null}
                 {isLoading ? <p>Posting review...</p>: null}
                 {err ? <p>Something went wrong, please try again</p>: null}
+                {currUser === "guest" ? <p>You must be logged in to post a review</p>: null}
+                {currUser === "guest" ? <Link to={'/users'}>Login here!</Link>: null}
             </form>
         </section>
     );
