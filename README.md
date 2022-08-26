@@ -15,6 +15,7 @@ Users can:
 - Refine reviews by category, sort by a desired key, order by ascending/descending, access different pages and limit results shown per page.
 - Add comments to existing reviews which also has a vote option.
 - Delete their own comments or reviews.
+- Admin page available to login and have access to delete users.
 
 This front-end project connects to a back-end api which I also created, the link to that repo is here:
 
