@@ -35,7 +35,7 @@ export default function Users () {
     if (err) return <p className="loading-errors">Something went wrong please try again</p>
 
     return (
-        <section className="users-list">
+        <section className="user-list">
             <h3 className="post-review-link">Current User: {currUser}</h3> <br></br>
             <Link className="post-review-link" to='/new-user'>Create a new account</Link>
             <ul>
