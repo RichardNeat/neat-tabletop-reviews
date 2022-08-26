@@ -16,6 +16,7 @@ function App() {
 
   const [currUser, setCurrUser] = useState('guest');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [categories, setCategories] = useState([]);
 
   return (
     <UserContext.Provider value={{currUser, setCurrUser}}>
@@ -23,10 +24,10 @@ function App() {
       <BrowserRouter>
         <div className="App">
           <Header />
-          <NavBar />
+          <NavBar categories={categories} setCategories={setCategories}/>
           <Routes>  
             <Route path='/' element={<Home />}/>
-            <Route path='/post-review' element={<PostReview/>}/>
+            <Route path='/post-review' element={<PostReview categories={categories}/>}/>
             <Route path='/reviews/:category' element={<Categories />}/>
             <Route path='/review/:review_id' element={<ReviewById />}/>
             <Route path='/reviews' element={<OrderBy/>}/>
