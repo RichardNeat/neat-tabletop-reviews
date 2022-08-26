@@ -1,4 +1,4 @@
-export default function SortBy ({setSortBy}) {
+export default function SortBy ({sortBy, setSortBy}) {
 
     const apiSortBys = ["None", "category", "created_at", "designer", "comment_count", "owner", "title", "votes"];
     const sortBys = ["None", "Category", "Date Created", "Designer", "Number of Comments", "Owner", "Title", "Score"]
@@ -15,7 +15,7 @@ export default function SortBy ({setSortBy}) {
     return (
         <>
             Sort by: {}
-            <select onChange={handleSortChange}>
+            <select value={sortBy} onChange={handleSortChange}>
                 {apiSortBys.map((option, index) => {
                     return <option value={option} key={option} >{sortBys[index]}</option>
                 })}
