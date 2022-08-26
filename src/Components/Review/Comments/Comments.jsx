@@ -29,7 +29,7 @@ export default function Comments ({id, comment_count}) {
         }).catch(() => {
             setErr('Something went wrong, please try again');
         });
-    }, [id, page]);
+    }, [id, page, comments]);
 
     return (
         <section className="comments-list">
