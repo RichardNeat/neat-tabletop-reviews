@@ -1,9 +1,11 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getReviewsByCategory } from "../apis";
 
 export default function Categories () {
 
+    const navigate = useNavigate();
+    console.log(navigate.deleted);
     const [categoryList, setCategoryList] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [err, setErr] = useState(null);
