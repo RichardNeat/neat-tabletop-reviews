@@ -8,7 +8,7 @@ import NavBar from './Components/NavBar';
 import Categories from './Components/Categories';
 import ReviewById from './Components/Review/ReviewById';
 import OrderBy from './Components/Review/Queries';
-import ErrorPage from './Components/Review/ErrorPage';
+import ErrorPage from './Components/ErrorPage';
 import Users from './Components/Users';
 import PostReview from './Components/Review/PostReview';
 

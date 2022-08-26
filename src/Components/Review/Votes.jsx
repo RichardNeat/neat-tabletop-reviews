@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 export default function Votes ({id, votes, comment_id, comment_votes}) {
 
+    // eslint-disable-next-line
     const {currUser, setCurrUser} = useContext(UserContext);
 
     const [voteTally, setVoteTally] = useState(votes ? votes: comment_votes);
