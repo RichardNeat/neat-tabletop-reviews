@@ -57,7 +57,7 @@ export default function PostComment ({id, setDeleted, success, setSuccess}) {
         <section className="post-comment">
             <h3>Post a new comment</h3>
             <form onSubmit={handleSubmit}>
-                <h4>User: {currUser}</h4>
+                <h4>Logged in as {currUser}</h4>
                 <label htmlFor="comment-body">New Comment: </label>
                 <textarea value={body} onChange={handleChange} type="text" id={body.length === 0 ? "comment-body": "comment-body-green"}></textarea>
                 <button disabled={submitted ? true: false}>Submit</button> <br></br>

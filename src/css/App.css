@@ -238,6 +238,16 @@ li {
   margin: 20px;
 }
 
+#post-review-input {
+  border: 1px solid black;
+  background-color: white;
+}
+
+#post-review-input-green {
+  border: greenyellow solid 2px;
+  background-color: white;
+}
+
 @media screen and (min-width: 600px) {
     .App {
       /* text-align: center; */
