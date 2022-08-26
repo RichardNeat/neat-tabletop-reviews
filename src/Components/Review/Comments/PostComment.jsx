@@ -43,7 +43,6 @@ export default function PostComment ({id, setDeleted, success, setSuccess, setCo
                 setIsBodyEmpty(false);
                 setSubmitted(false);
                 setCommentCount((currCommentCount) => {
-                    console.log(currCommentCount)
                     return +currCommentCount - 1
                 });
             });

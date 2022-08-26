@@ -8,8 +8,6 @@ export default function Votes ({id, votes, comment_id, comment_votes}) {
 
     const {currUser, setCurrUser} = useContext(UserContext);
 
-    // console.log(id, votes, comment_id, comment_votes)
-
     const [voteTally, setVoteTally] = useState(votes ? votes: comment_votes);
     const [err, setErr] = useState(null);
     const [upClicks, setUpClicks] = useState(0);

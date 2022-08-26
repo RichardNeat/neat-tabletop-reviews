@@ -6,7 +6,13 @@ https://neat-tabletop-reviews.netlify.app/
 
 The purpose of this project was to consolidate my understanding of making a C.R.U.D application from a front end perspective.
 
-Neat Tabletop Reviews is a board game review and and discussion website, users can view and vote on reviews as well as adding new reviews. Comments can be added to existing reviews which also has a vote option.
+Neat Tabletop Reviews is a board game review and and discussion website.
+Users can:
+- Select their user
+- View and vote on reviews as well as adding new reviews. 
+- Refine reviews by category, sort by a desired key, order by ascending/descending, access different pages and limit results shown per page.
+- Add comments to existing reviews which also has a vote option.
+- Delete their own comments or reviews.
 
 This front-end project connects to a back-end api which I also created, the link to that repo is here:
 

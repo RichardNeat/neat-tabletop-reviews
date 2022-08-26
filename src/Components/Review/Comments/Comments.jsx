@@ -19,16 +19,17 @@ export default function Comments ({id, comment_count}) {
     const [deleted, setDeleted] = useState(false);
     const [success, setSuccess] = useState(false);
     const [commentCount, setCommentCount] = useState(comment_count);
+    const [page, setPage] = useState(1);
 
     useEffect(() => {
-        getCommentsById(id).then(({data}) => {
+        getCommentsById(id, page).then(({data}) => {
             setComments(data.comments);
             setIsLoading(false);
             setErr(null);
         }).catch(() => {
             setErr('Something went wrong, please try again');
         });
-    }, [id, comments]);
+    }, [id, page]);
 
     return (
         <section className="comments-list">
@@ -38,7 +39,7 @@ export default function Comments ({id, comment_count}) {
             {deleted ? <p>Comment Deleted!</p>: null}
             {comments.length === 0 && !err ? "No comments yet!": null}
             <h3>Comments: ({commentCount})</h3>
-            <Page />
+            <Page page={page} setPage={setPage} totalPages={Math.ceil(commentCount/10)}/>
             <ul>
                 {comments.map((comment) => {
                     return <li key={comment.comment_id} className="comment">
