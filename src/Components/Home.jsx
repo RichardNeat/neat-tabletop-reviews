@@ -25,8 +25,6 @@ export default function Home () {
         });
     },[sortBy, orderBy, page, limit]);
 
-    // console.log(sortBy, orderBy, page, limit);
-
     if (isLoading) return <p className="loading-errors">Loading Reviews...</p>
     if (err) return <p className="loading-errors">Sorry there has been a problem, please try again</p>
 
@@ -47,6 +45,7 @@ export default function Home () {
                         </li>
                 })}
             </ul>
+            <Queries sortBy={sortBy} setSortBy={setSortBy} orderBy={orderBy} setOrderBy={setOrderBy} page={page} setPage={setPage} setLimit={setLimit} limit={limit} totalPages={Math.ceil(reviews[0].total_count/limit)}/>
         </section>
     );
 };

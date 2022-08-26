@@ -4,7 +4,7 @@ import { postComment } from "../../../apis";
 import { useContext } from "react";
 import { UserContext } from "../../../contexts/current-user";
 
-export default function PostComment ({id, setDeleted, success, setSuccess}) {
+export default function PostComment ({id, setDeleted, success, setSuccess, setCommentCount}) {
 
     // eslint-disable-next-line
     const {currUser, setCurrUser} = useContext(UserContext);
@@ -22,6 +22,9 @@ export default function PostComment ({id, setDeleted, success, setSuccess}) {
     };
 
     const handleSubmit = (event) => {
+        setCommentCount((currCommentCount) => {
+            return +currCommentCount + 1
+        });
         setSuccess(false);
         setIsLoading(true);
         event.preventDefault();
@@ -39,6 +42,10 @@ export default function PostComment ({id, setDeleted, success, setSuccess}) {
                 setIsLoading(false);
                 setIsBodyEmpty(false);
                 setSubmitted(false);
+                setCommentCount((currCommentCount) => {
+                    console.log(currCommentCount)
+                    return +currCommentCount - 1
+                });
             });
         } else {
             setIsBodyEmpty(true);

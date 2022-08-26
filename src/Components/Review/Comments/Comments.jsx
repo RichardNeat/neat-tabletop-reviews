@@ -6,6 +6,7 @@ import PostComment from "./PostComment";
 import DeleteComment from "./DeleteComment";
 import Moment from 'moment';
 import Votes from "../Votes";
+import Page from "../Queries/Page";
 
 
 export default function Comments ({id, comment_count}) {
@@ -17,6 +18,7 @@ export default function Comments ({id, comment_count}) {
     const [err, setErr] = useState(null);
     const [deleted, setDeleted] = useState(false);
     const [success, setSuccess] = useState(false);
+    const [commentCount, setCommentCount] = useState(comment_count);
 
     useEffect(() => {
         getCommentsById(id).then(({data}) => {
@@ -30,12 +32,13 @@ export default function Comments ({id, comment_count}) {
 
     return (
         <section className="comments-list">
-            <PostComment id={id} success={success} setSuccess={setSuccess} setDeleted={setDeleted}/>
+            <PostComment id={id} success={success} setSuccess={setSuccess} setDeleted={setDeleted} setCommentCount={setCommentCount}/>
             {isLoading && !err ? <p>Loading Comments...</p>: null}
             {err ? <p>{err}</p>: null}
             {deleted ? <p>Comment Deleted!</p>: null}
             {comments.length === 0 && !err ? "No comments yet!": null}
-            <h3>Comments: ({comment_count})</h3>
+            <h3>Comments: ({commentCount})</h3>
+            <Page />
             <ul>
                 {comments.map((comment) => {
                     return <li key={comment.comment_id} className="comment">
