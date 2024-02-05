@@ -23,7 +23,7 @@ https://github.com/RichardNeat/neat-games
 
 Hosted Version Link:
 
-https://neat-games.herokuapp.com/api
+https://neat-tabletop-reviews.netlify.app/
 
 If you wish to run this project locally you can 'clone' this repo from gitHub, first 'cd' into the folder you wish to clone it down to and run the following commands:
 
